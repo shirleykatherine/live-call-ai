@@ -1,0 +1,90 @@
+[
+  {
+    "id": "scenario_001",
+    "name": "Late delivery — frustrated customer",
+    "description": "Customer's order is late and they're frustrated",
+    "conversation": [
+      {"speaker": "customer", "text": "Hi, my order ORD-10001 hasn't arrived yet and it was supposed to be here days ago."},
+      {"speaker": "agent",    "text": "I'm sorry to hear that. Let me look into that for you. Can I get your order number?"},
+      {"speaker": "customer", "text": "It's ORD-10001. I need this urgently, I've been waiting for 8 days now!"}
+    ],
+    "expected": {
+      "intent": "delivery_issue",
+      "sentiment": "frustrated",
+      "conversation_stage": "problem_identification",
+      "requires_tool": true,
+      "expected_tool": "get_order_status",
+      "next_best_action_contains": "order"
+    }
+  },
+  {
+    "id": "scenario_002",
+    "name": "Refund request — polite customer",
+    "description": "Customer wants a refund for a product they don't like",
+    "conversation": [
+      {"speaker": "customer", "text": "Hello, I'd like to return a product and get a refund please."},
+      {"speaker": "agent",    "text": "Of course! I'd be happy to help with that. Could you share the order number?"},
+      {"speaker": "customer", "text": "It's ORD-10002. I received it but it's not what I expected."}
+    ],
+    "expected": {
+      "intent": "refund_request",
+      "sentiment": "neutral",
+      "conversation_stage": "information_gathering",
+      "requires_tool": true,
+      "expected_tool": "get_order_status",
+      "next_best_action_contains": "refund"
+    }
+  },
+  {
+    "id": "scenario_003",
+    "name": "Cancellation request — urgent",
+    "description": "Customer wants to cancel an order immediately",
+    "conversation": [
+      {"speaker": "customer", "text": "I need to cancel my order right now! Order ORD-10003. I placed it by mistake."},
+      {"speaker": "agent",    "text": "I understand, I'll check if we can still cancel it."},
+      {"speaker": "customer", "text": "Please hurry, I don't want it to ship!"}
+    ],
+    "expected": {
+      "intent": "cancellation",
+      "sentiment": "urgent",
+      "conversation_stage": "problem_identification",
+      "requires_tool": true,
+      "expected_tool": "get_order_status",
+      "next_best_action_contains": "cancel"
+    }
+  },
+  {
+    "id": "scenario_004",
+    "name": "Escalation request — angry customer",
+    "description": "Customer is very angry and wants to speak to a supervisor",
+    "conversation": [
+      {"speaker": "customer", "text": "This is absolutely unacceptable. My order has been missing for 3 weeks!"},
+      {"speaker": "agent",    "text": "I sincerely apologize for this experience. Let me look into this immediately."},
+      {"speaker": "customer", "text": "I want to speak to your manager right now. This is ridiculous."}
+    ],
+    "expected": {
+      "intent": "complaint",
+      "sentiment": "angry",
+      "conversation_stage": "escalation",
+      "requires_tool": false,
+      "next_best_action_contains": "escalat"
+    }
+  },
+  {
+    "id": "scenario_005",
+    "name": "General policy inquiry — neutral",
+    "description": "Customer asking about refund policy",
+    "conversation": [
+      {"speaker": "customer", "text": "Hi, can you tell me what your refund policy is?"},
+      {"speaker": "agent",    "text": "Of course! Happy to help with that."},
+      {"speaker": "customer", "text": "How many days do I have to return something?"}
+    ],
+    "expected": {
+      "intent": "general_inquiry",
+      "sentiment": "neutral",
+      "conversation_stage": "information_gathering",
+      "requires_tool": false,
+      "next_best_action_contains": "policy"
+    }
+  }
+]

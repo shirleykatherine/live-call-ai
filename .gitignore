@@ -1,0 +1,50 @@
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Chroma / vector database
+backend/data/chroma_db/
+data/chroma_db/
+chroma_db/
+
+# Logs
+*.log
+logs/
+
+# Node
+node_modules/
+frontend/node_modules/
+
+# Frontend build
+frontend/dist/
+frontend/build/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python test/cache
+.pytest_cache/
+.mypy_cache/
+
+# Temporary files
+*.tmp
+*.temp
